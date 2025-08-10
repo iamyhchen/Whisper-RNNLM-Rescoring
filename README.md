@@ -44,7 +44,7 @@ step3. 準備辨識語料
 - `audio_data` 放正解與語料路徑
 - `Corpus` 放置語料 
 
-step3. whisper rescoring
+step4. whisper rescoring
 ```
 python3 batch_eval_whisper_rnnlm.py \
   --text ./audio_data/YOUR_DATA_DIRECTORY/test/text \
