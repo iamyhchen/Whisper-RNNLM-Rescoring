@@ -25,8 +25,20 @@ python3 train_rnnlm_whisper.py \
 > - `whisper_tokenizer` 參數要與準備做rescoring的whisper模型相同
 > - `rnn_type` 可以指定 lstm 或 gru
 
-step2. 把 whisper 模型放入`model/Whisper`資料夾
-
+step2. 把微調好的 whisper 模型放入`model/Whisper`資料夾，模型要有以下檔案
+```
+.
+├── added_tokens.json
+├── config.json
+├── generation_config.json
+├── merges.txt
+├── model.safetensors
+├── normalizer.json
+├── preprocessor_config.json
+├── special_tokens_map.json
+├── tokenizer_config.json
+└── vocab.json
+```
 step3. whisper rescoring
 ```
 python3 batch_eval_whisper_rnnlm.py \
