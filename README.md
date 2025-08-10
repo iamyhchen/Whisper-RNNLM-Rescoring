@@ -1,7 +1,7 @@
 # Whisper + RNNLM
 This script is used to train an RNN language model and apply it for Whisper rescoring.
 
-## 三步驟執行
+## 四步驟執行
 step1. 訓練語言模型
 ```
 python3 train_rnnlm_whisper.py \
@@ -39,11 +39,16 @@ step2. 把微調好的 whisper 模型放入`model/Whisper`資料夾，模型要�
 ├── tokenizer_config.json
 └── vocab.json
 ```
+
+step3. 準備辨識語料
+- `audio_data` 放正解與語料路徑
+- `Corpus` 放置語料 
+
 step3. whisper rescoring
 ```
 python3 batch_eval_whisper_rnnlm.py \
-  --text ./dataset/data-pinyin-Zhaoan/test/text \
-  --audio_paths ./dataset/data-pinyin-Zhaoan/test/audio_paths \
+  --text ./audio_data/YOUR_DATA_DIRECTORY/test/text \
+  --audio_paths ./audio_data/YOUR_DATA_DIRECTORY/test/audio_paths \
   --asr_model ./model/Whisper/YOUR-WHISPER-MODEL \
   --rnnlm_ckpt ./model/RNNLM/rnnlm_Taipu_char_whisper_medium_gru/rnnlm.pt \
   --out_dir ./pred
